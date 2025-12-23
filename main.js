@@ -2,11 +2,12 @@ import { createElement } from "react";
 import fetchTasks from "./api";
 import Task from './taskManager';
 import TaskManager from './taskManager';
+
 const loadTasksButton = document.getElementById(loadTasksBtn);
 
 taskManager = new TaskManager();
 
-addEventListener('click', async() => {
+loadTasksButton.addEventListener('click', async() => {
     console.log("Loading tasks...");
 
     try{
@@ -28,11 +29,28 @@ function render(){
     const div = document.getElementById("taskList");
     div.innerHTML("");
     const tasks = taskManager.tasks;
-    tasks.forEach(element => {
+    tasks.forEach(task => {
         const box = createElement("div");
         const span = createElement("span");
         const toggleBtn = createElement("button");
         const deleteBtn = createElement("button");
+
+        span.textContent = element.title;
+
+        toggleBtn.addEventListener('click', () => {
+            taskManager.toggleTask(task.id);
+            render();
+        });
+
+        deleteBtn.addEventListener('click', () => {
+            taskManager.removeTask(task.id);
+            render();
+        });
+
+        box.appendChild(span);
+        box.appendChild(toggleBtn);
+        box.appendChild(deleteBtn);
+        loadTasksButton.appendChild(box);
     });
     const button = createElement("button");
 }
