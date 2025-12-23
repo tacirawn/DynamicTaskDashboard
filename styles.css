@@ -5,13 +5,14 @@
 }
 
 .task {
-    border: 2px solid black;
-    margin-bottom: -2px;
     width: fit-content;
     font-size: 18px;
     display: flex;
     align-items: center;
     gap: 10px;
+    border: 2px solid black;
+    margin: -2px;
+    background-color: aliceblue;
 }
 
 .task span {
@@ -29,4 +30,8 @@
 
 #statusMessage {
     font-size: 18px;
+}
+
+.body {
+    background-color: rgb(252, 212, 243);
 }
