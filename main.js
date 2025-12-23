@@ -13,7 +13,6 @@ loadTasksButton.addEventListener('click', async() => {
 
     try{
         const rawData = await fetchTasks();
-        console.log(rawData);
         const string = JSON.stringify(rawData);
         const parsed = JSON.parse(string);
         const taskObjects = parsed.map(item => {
@@ -21,6 +20,7 @@ loadTasksButton.addEventListener('click', async() => {
         });
         taskManager.setTasks(taskObjects);
         render();
+        statusMessage.textContent = "Tasks are loaded.";
     }catch(error){
         statusMessage.textContent = "Error occured.";
     }
