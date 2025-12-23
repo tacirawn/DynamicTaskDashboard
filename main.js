@@ -5,6 +5,7 @@ import TaskManager from './taskManager';
 
 const loadTasksButton = document.getElementById(loadTasksBtn);
 
+
 taskManager = new TaskManager();
 
 loadTasksButton.addEventListener('click', async() => {
@@ -52,7 +53,7 @@ function render(){
         box.appendChild(span);
         box.appendChild(toggleBtn);
         box.appendChild(deleteBtn);
-        loadTasksButton.appendChild(box);
+        div.appendChild(box);
     });
     const button = createElement("button");
 }
