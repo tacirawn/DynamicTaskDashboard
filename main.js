@@ -14,8 +14,8 @@ loadTasksButton.addEventListener('click', async() => {
     try{
         const rawData = await fetchTasks();
         console.log(rawData);
-        string = JSON.stringify(rawData);
-        parsed = JSON.parse(string);
+        const string = JSON.stringify(rawData);
+        const parsed = JSON.parse(string);
         const taskObjects = parsed.map(item => {
             return new Task(item.id, item.title, item.completed);
         });

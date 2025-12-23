@@ -30,13 +30,13 @@ export default class TaskManager{
     }
 
     addTask(task){
-        taskList= this.tasks;
+        const taskList= this.tasks;
         taskList.push(task);
         this.tasks = taskList;
     }
 
     removeTask(taskId){
-        taskList = [];
+        const taskList = [];
         for(let t of this.tasks){
             if(t.id != taskId){
                 taskList.push(t);
@@ -46,15 +46,11 @@ export default class TaskManager{
     }
 
     toggleTask(taskId){
-        taskList = [];
         for(let t of this.tasks){
-            if(t.id = taskId){
-                toggledTask = this.toggleTask(t);
-                taskList.push(toggledTask);
-            } else {
-                taskList.push(t);
+            if(t.id == taskId){
+                t.completed = !t.completed;
+                return t;
             }
         }
-        this.tasks = taskList;
     }
 }
