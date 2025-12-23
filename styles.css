@@ -4,3 +4,29 @@
     opacity: 0.5;
 }
 
+.task {
+    border: 2px solid black;
+    margin-bottom: -2px;
+    width: fit-content;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task span {
+    margin-right: auto;
+    padding-right: 10px;
+}
+
+.task button {
+    cursor: pointer;
+}
+
+#loadTasksBtn {
+    cursor: pointer;
+}
+
+#statusMessage {
+    font-size: 18px;
+}
