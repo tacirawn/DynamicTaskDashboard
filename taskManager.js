@@ -46,6 +46,15 @@ class TaskManager{
     }
 
     toggleTask(taskId){
-
+        taskList = [];
+        for(let t of this.tasks){
+            if(t.id = taskId){
+                toggledTask = this.toggleTask(t);
+                taskList.push(toggledTask);
+            } else {
+                taskList.push(t);
+            }
+        }
+        this.tasks = taskList;
     }
 }
