@@ -27,15 +27,17 @@ loadTasksButton.addEventListener('click', async() => {
 
 function render(){
     const div = document.getElementById("taskList");
-    div.innerHTML("");
+    div.innerHTML = "";
     const tasks = taskManager.tasks;
     tasks.forEach(task => {
-        const box = createElement("div");
-        const span = createElement("span");
-        const toggleBtn = createElement("button");
-        const deleteBtn = createElement("button");
+        const box = document.createElement("div");
+        const span = document.createElement("span");
+        const toggleBtn = document.createElement("button");
+        toggleBtn.textContent = "Toggle";
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
 
-        span.textContent = element.title;
+        span.textContent = task.title;
 
         toggleBtn.addEventListener('click', () => {
             taskManager.toggleTask(task.id);
