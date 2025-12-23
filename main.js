@@ -1,15 +1,15 @@
-import { createElement } from "react";
-import fetchTasks from "./api";
-import Task from './taskManager';
-import TaskManager from './taskManager';
+import fetchTasks from './api.js';
+import {Task} from './taskManager.js';
+import TaskManager from './taskManager.js';
 
-const loadTasksButton = document.getElementById(loadTasksBtn);
+const loadTasksButton = document.getElementById("loadTasksBtn");
+const statusMessage = document.getElementById("statusMessage");
 
 
-taskManager = new TaskManager();
+const taskManager = new TaskManager();
 
 loadTasksButton.addEventListener('click', async() => {
-    console.log("Loading tasks...");
+    statusMessage.textContent = "Loading tasks...";
 
     try{
         const rawData = await fetchTasks();
@@ -32,6 +32,7 @@ function render(){
     const tasks = taskManager.tasks;
     tasks.forEach(task => {
         const box = document.createElement("div");
+        box.className = "task";
         const span = document.createElement("span");
         const toggleBtn = document.createElement("button");
         toggleBtn.textContent = "Toggle";
@@ -39,6 +40,10 @@ function render(){
         deleteBtn.textContent = "Delete";
 
         span.textContent = task.title;
+
+        if(task.completed){
+            span.classList.add("completed");
+        }
 
         toggleBtn.addEventListener('click', () => {
             taskManager.toggleTask(task.id);
@@ -55,7 +60,4 @@ function render(){
         box.appendChild(deleteBtn);
         div.appendChild(box);
     });
-    const button = createElement("button");
 }
-
-

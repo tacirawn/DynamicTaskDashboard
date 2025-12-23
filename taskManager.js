@@ -1,4 +1,4 @@
-class Task{
+export class Task{
     constructor(id, title, completed){
         Object.defineProperty(this, "id", {
             value: id,
@@ -22,7 +22,7 @@ class Task{
 }
 
 
-class TaskManager{
+export default class TaskManager{
     tasks = [];
 
     setTasks(tasks){
