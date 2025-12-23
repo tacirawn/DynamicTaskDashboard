@@ -1,4 +1,4 @@
-export default async function fetchTasks(){
+export default function fetchTasks(){
     return new Promise ((resolve) => {
         setTimeout(() => {
         const taskList = [
